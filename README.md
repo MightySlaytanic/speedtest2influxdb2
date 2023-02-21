@@ -113,7 +113,7 @@ export INFLUX_SERVICE_TAG="influx_service_tag"
 export INFLUX_TOKEN="influx_token"
 export HOST_TAG="host-tag"
 
-export SPEEDTEST_COMMAND="/usr/bin/speedtest -f json"
+export SPEEDTEST_COMMAND="/usr/bin/speedtest"
 export SPEEDTEST_SERVER_ID="25254"
 export SPEEDTEST_SERVER_DESCRIPTION="Konverto AG (Bolzano)"
 

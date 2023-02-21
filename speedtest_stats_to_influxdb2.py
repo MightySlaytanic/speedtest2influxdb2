@@ -38,7 +38,7 @@ if __name__ == '__main__':
     if SPEEDTEST_SERVER_ID:
         server_option += f"--server-id {SPEEDTEST_SERVER_ID}"
         
-    data = json.loads(run([f"{SPEEDTEST_COMMAND} {server_option}"], stdout=PIPE, stderr=None, text=True, shell=True).stdout)
+    data = json.loads(run([f"{SPEEDTEST_COMMAND} -f json {server_option}"], stdout=PIPE, stderr=None, text=True, shell=True).stdout)
 
     #data = json.loads(TEST_OUTPUT)
 
