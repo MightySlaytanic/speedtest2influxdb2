@@ -132,6 +132,6 @@ nano /etc/cron.d/speedtest-monitoring
 
 # Upload stats to InfluxDB2
 
-* */4 * * * root /path-to-scripts/pve_disks_stats_to_influxdb2.sh >/dev/null 2>&1
+0 */4 * * * root /path-to-scripts/pve_disks_stats_to_influxdb2.sh >/dev/null 2>&1
 ```
 
