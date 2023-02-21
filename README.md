@@ -1,7 +1,7 @@
 # speedtest-monitoring
-Speedtest stats' uploader to InfluxDB2
+Speedtest stats' uploader to InfluxDB2: this Python script launches speedtest cli tool installed from Ookla repositories, collects JSON output and uploads stats to an InfluxDB2 service.
 
-**DISCLAIMER**: avoid launching it too frequently to avoid issues with your provider or charges if on paid connections. The tool transfers hundreds of MBs at each launch
+**DISCLAIMER**: avoid launching it too frequently to avoid issues with your provider or charges if on paid connections. The tool transfers hundreds of MBs at each launch.
 
 ## Requirements
 
