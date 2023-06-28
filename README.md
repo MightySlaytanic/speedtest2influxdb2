@@ -22,12 +22,27 @@ sudo apt-get install speedtest
 #--- End Instructions from Ookla ---#
 
 apt install pip3
+
+# If the following fails, read the next section about Python Virtual environment
 pip3 install influxdb-client
 ```
 
 **IMPORTANT**: launch speedtest at least once interactively to accept license agreement before running it as a background script.
 
 A functioning InfluxDB v2 instance hosted on your local LAN is required too.
+
+### Installing python modules in a Python Virtual Environment
+
+**UPDATE 2023-06-28: if you're running on a Debian 12 system, you are required to create a python virtual environment with influxdb-client installed and then point at the python3 executable within that environment. For example, to create the virtual-env in /root/scripts/venv and install the required package do the following:
+
+```bash
+python3 -m venv /root/scripts/venv
+. /root/scripts/venv/bin/activate
+pip3 install influxdb-client
+deactivate
+```
+
+Then, invoke the python script by passing it as an argument to /root/scripts/venv/bin/python3 executable or thange the shabang string on the first line of the script.
 
 ## Script Overview
 
@@ -117,7 +132,11 @@ export SPEEDTEST_COMMAND="/usr/bin/speedtest"
 export SPEEDTEST_SERVER_ID="25254"
 export SPEEDTEST_SERVER_DESCRIPTION="Konverto AG (Bolzano)"
 
-python3 /opt/speedtest2influxdb2/speedtest_stats_to_influxdb2.py $*
+# Debian 11 without Python Virtual Environment
+# python3 /opt/speedtest2influxdb2/speedtest_stats_to_influxdb2.py $*
+
+# Debian 12 with Python Virtual Environment in /path/to/venv
+/path/to/venv/bin/python3 /opt/speedtest2influxdb2/speedtest_stats_to_influxdb2.py $*
 
 # Save the file and make it executable
 chmod +x /path-to-scripts/launch_speedtest2influxdb2.sh
